@@ -3,7 +3,7 @@ var express = require("express")
 
 var connectToDatabase = require("./database/db")
 
-var bookRoute = require("./routes/book-routes")
+var router= require("./routes/book-routes")
 
 var app = express()
 
@@ -15,7 +15,7 @@ connectToDatabase()
 
 app.use(express.json())
 
-app.use("api/books",bookRoute)
+app.use("/api/books",router)
 
 
 var PORT = process.env.PORT || 3000
