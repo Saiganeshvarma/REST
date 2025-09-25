@@ -11,9 +11,8 @@ router.get("/get/:id",getSingleBook)
 
 router.post("/add",addBook)
 
-router.put("/add/:id",updateBook)
+router.put("/update/:id",updateBook)
 
 router.delete("/delete/:id",deleteBook)
-
 
 module.exports = router
