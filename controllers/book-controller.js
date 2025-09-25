@@ -1,22 +1,29 @@
 
-var book = require("../model/books")
+var books = require("../model/books")
+
 var getAllBooks = async(req,res)=>{
-    var allBooks = await book.find()
+    var allBooks = await  books.find()
     res.status(200).json(allBooks)
+
+
+
 
 }
 
 var getSingleBook = async(req,res)=>{
+    var bookId = req.params.id 
+    var myBook = books.findById(bookId)
+    res.status(200).json(myBook)
 
 }
 
-var addNewBook = async(req,res)=>{
-
-    var newFormBook = req.body
-
-    var newBook = await book.create(newFormBook)
+var addBook = async(req,res)=>{
+    var formData = req.body
+    var newBook = await books.create(formData)
     if(newBook){
         res.status(201).json(newBook)
+    }else{
+        res.status(404).json({message : "cannot create a book"})
     }
 
 }
@@ -29,8 +36,4 @@ var deleteBook = async(req,res)=>{
 
 }
 
-
-module.exports = {
-    getAllBooks,getSingleBook,addNewBook,updateBook,deleteBook
-}
-
+module.exports = {getAllBooks,getSingleBook,addBook,updateBook,deleteBook}
