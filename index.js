@@ -15,9 +15,12 @@ connectToDatabase()
 // add the middle ware
 
 app.use(express.json())
+app.use(cors())
+
 
 app.use("/api/books",bookRoute)
-app.use(cors())
+
+
 
 // api/books/get
 
