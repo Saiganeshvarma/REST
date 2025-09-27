@@ -2,7 +2,7 @@ var express = require("express")
 
 var {getAllBooks,getSingleBook,addBook,updateBook,deleteBook} = require("../controllers/book-controller")
 
-
+// book routes
 var router = express.Router()
 
 router.get("/get",getAllBooks)
@@ -16,3 +16,4 @@ router.put("/update/:id",updateBook)
 router.delete("/delete/:id",deleteBook)
 
 module.exports = router
+

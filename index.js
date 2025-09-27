@@ -5,6 +5,10 @@ var cors = require("cors")
 
 var bookRoute = require("./routes/book-route")
 
+var productRoute = require("./routes/product-route")
+
+
+
 
 var app = express()
 
@@ -19,6 +23,10 @@ app.use(cors())
 
 
 app.use("/api/books",bookRoute)
+
+app.use("/api/products",productRoute)
+
+
 
 
 
